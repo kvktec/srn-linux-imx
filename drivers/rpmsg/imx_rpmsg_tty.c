@@ -13,8 +13,8 @@
 #include <linux/virtio.h>
 
 /* this needs to be less then (RPMSG_BUF_SIZE - sizeof(struct rpmsg_hdr)) */
-#define RPMSG_MAX_SIZE		256
-#define MSG		"hello world!"
+//#define RPMSG_MAX_SIZE		(RPMSG_BUF_SIZE - sizeof(struct rpmsg_hdr)) // 496 bytes
+#define RPMSG_MAX_SIZE		496
 
 /*
  * struct rpmsgtty_port - Wrapper struct for imx rpmsg tty port.
@@ -133,6 +133,7 @@ static int rpmsg_tty_probe(struct rpmsg_device *rpdev)
 	struct rpmsgtty_port *cport;
 	struct tty_driver *rpmsgtty_driver;
 
+	pr_info("=========> Connecting tty to rpmsg endpoint 30");
 	dev_info(&rpdev->dev, "new channel: 0x%x -> 0x%x!\n",
 			rpdev->src, rpdev->dst);
 
@@ -170,16 +171,6 @@ static int rpmsg_tty_probe(struct rpmsg_device *rpdev)
 		goto error1;
 	} else {
 		pr_info("Install rpmsg tty driver!\n");
-	}
-
-	/*
-	 * send a message to our remote processor, and tell remote
-	 * processor about this channel
-	 */
-	ret = rpmsg_send(rpdev->ept, MSG, strlen(MSG));
-	if (ret) {
-		dev_err(&rpdev->dev, "rpmsg_send failed: %d\n", ret);
-		goto error;
 	}
 
 	return 0;
@@ -226,6 +217,7 @@ static struct rpmsg_driver rpmsg_tty_driver = {
 
 static int __init init(void)
 {
+	pr_info("=========> register imx_rpmsg_tty driver");
 	return register_rpmsg_driver(&rpmsg_tty_driver);
 }
 
