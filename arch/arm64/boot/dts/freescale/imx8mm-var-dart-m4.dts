@@ -68,3 +68,20 @@
 &uart3 {
 	status = "disabled";
 };
+
+&uart2 {
+	status = "disabled";
+};
+
+
+&ecspi1 {
+	/* Resistive touch controller */
+	ads7846@0 {
+		status = "disable";
+	};
+
+	/* CAN controller */
+	can@1 {
+		status = "disable";
+	};
+};
