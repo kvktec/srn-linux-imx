@@ -123,7 +123,7 @@
 		compatible = "gpio-keys";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_gpio_keys>;
-		status = "okay";
+		status = "disabled";
 
 		up {
 			label = "Up";
@@ -158,7 +158,7 @@
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_leds>;
-		status = "okay";
+		status = "disabled";
 
 		emmc {
 			label = "eMMC";
@@ -852,7 +852,7 @@
 	pinctrl-1 = <&pinctrl_i2c4_gpio>;
 	scl-gpios = <&gpio5 20 GPIO_ACTIVE_HIGH>;
 	sda-gpios = <&gpio5 21 GPIO_ACTIVE_HIGH>;
-	status = "okay";
+	status = "disabled";
 };
 
 &csi1_bridge {
@@ -964,14 +964,14 @@
 &uart2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart2>;
-	status = "okay";
+	status = "disabled";
 };
 
 /* Header */
 &uart3 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart3>;
-	status = "okay";
+	status = "disabled";
 };
 
 /* BT */
@@ -1044,7 +1044,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_wdog>;
 	fsl,ext-reset-output;
-	status = "okay";
+	status = "disabled";
 };
 
 &A53_0 {
@@ -1105,7 +1105,7 @@
 		   <&gpio4 22 GPIO_ACTIVE_LOW>;
 	/delete-property/ dmas;
 	/delete-property/ dma-names;
-	status = "okay";
+	status = "disabled";
 
 	/* Resistive touch controller */
 	ads7846@0 {
@@ -1129,7 +1129,7 @@
 		ti,settle-delay-usec = /bits/ 16 <150>;
 		ti,keep-vref-on;
 		wakeup-source;
-		status = "okay";
+		status = "disabled";
 	};
 
 	/* CAN controller */
@@ -1142,7 +1142,7 @@
 		interrupt-parent = <&gpio1>;
 		interrupts = <6 IRQ_TYPE_EDGE_FALLING>;
 		spi-max-frequency = <10000000>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	/* Test SPI device */
@@ -1150,7 +1150,7 @@
 		reg = <2>;
 		compatible = "var,spidev";
 		spi-max-frequency = <12000000>;
-		status = "okay";
+		status = "disabled";
 	};
 };
 
