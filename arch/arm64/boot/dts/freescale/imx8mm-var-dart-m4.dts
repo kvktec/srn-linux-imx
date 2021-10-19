@@ -65,6 +65,10 @@
 	status = "disabled";
 };
 
+&uart4 {
+	status = "disabled";
+};
+
 &uart3 {
 	status = "disabled";
 };

@@ -964,14 +964,14 @@
 &uart2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart2>;
-	status = "disabled";
+	status = "okay";
 };
 
 /* Header */
 &uart3 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart3>;
-	status = "disabled";
+	status = "okay";
 };
 
 /* BT */
@@ -1044,7 +1044,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_wdog>;
 	fsl,ext-reset-output;
-	status = "disabled";
+	status = "okay";
 };
 
 &A53_0 {
